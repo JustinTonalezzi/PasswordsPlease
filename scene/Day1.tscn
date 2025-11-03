@@ -1,0 +1,110 @@
+[gd_scene load_steps=17 format=3 uid="uid://rhslxr0t6o5v"]
+
+[ext_resource type="Script" path="res://scene/work_day.gd" id="1_y1sn6"]
+[ext_resource type="Resource" uid="uid://b451oxbcvbbxx" path="res://entity/character_data/day1/daniel_smith_day1.tres" id="2_ruqh5"]
+[ext_resource type="Resource" uid="uid://gq7s2rqr4hyd" path="res://entity/character_data/day1/devish_pant_day1.tres" id="3_ggspu"]
+[ext_resource type="PackedScene" uid="uid://qibwmrns1nek" path="res://ui/CameraArea.tscn" id="4_0pheg"]
+[ext_resource type="Resource" uid="uid://bptwnjn0acvhc" path="res://entity/character_data/day1/carol_coleman_day1.tres" id="4_unlga"]
+[ext_resource type="PackedScene" uid="uid://r3obsn7dyt73" path="res://ui/DialogArea.tscn" id="5_myg6n"]
+[ext_resource type="Resource" uid="uid://bkv8yr1gy2fi8" path="res://entity/character_data/day1/luther_griffin_day1.tres" id="5_vf3dd"]
+[ext_resource type="Resource" uid="uid://dsttd66hdkbfn" path="res://entity/character_data/day1/nora_galvan_day1.tres" id="6_qp85b"]
+[ext_resource type="PackedScene" uid="uid://cajp41ks5tyef" path="res://ui/QuestionArea.tscn" id="6_toohs"]
+[ext_resource type="PackedScene" uid="uid://cu7tx0jfe6p46" path="res://ui/WorkingArea.tscn" id="7_pijnk"]
+[ext_resource type="PackedScene" uid="uid://dewfwna8cc2s0" path="res://ui/ResultScreen.tscn" id="8_fgsii"]
+[ext_resource type="PackedScene" uid="uid://xb65vfev8api" path="res://entity/document/AllowedVisitNotice.tscn" id="9_y6hy7"]
+[ext_resource type="PackedScene" uid="uid://d3t1coeegq2wg" path="res://scene/Day2.tscn" id="13_e8k2m"]
+[ext_resource type="PackedScene" uid="uid://up6eaj3xcu5g" path="res://ui/ZoomView.tscn" id="13_spa2q"]
+[ext_resource type="PackedScene" uid="uid://c4orpco2rb63g" path="res://ui/SettingMenu.tscn" id="14_dx7wa"]
+[ext_resource type="AudioStream" uid="uid://cgoe0ob7iinbo" path="res://asset/music/booth_ambient_440126__blaukreuz.ogg" id="14_l6uew"]
+
+[node name="Day1" type="Node2D"]
+script = ExtResource("1_y1sn6")
+day = 1
+date_string = "13/05/2000"
+today_subjects = Array[Resource("res://entity/character_resource.gd")]([ExtResource("2_ruqh5"), ExtResource("3_ggspu"), ExtResource("4_unlga"), ExtResource("5_vf3dd"), ExtResource("6_qp85b")])
+next_day_scene = ExtResource("13_e8k2m")
+
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1366.0
+offset_bottom = 768.0
+mouse_filter = 1
+
+[node name="CameraArea" parent="GameUI" instance=ExtResource("4_0pheg")]
+layout_mode = 1
+
+[node name="WorkingArea" parent="GameUI" node_paths=PackedStringArray("today_extra_documents") instance=ExtResource("7_pijnk")]
+layout_mode = 1
+today_extra_documents = [NodePath("AllowedVisitNotice")]
+
+[node name="AllowedVisitNotice" parent="GameUI/WorkingArea" instance=ExtResource("9_y6hy7")]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 160.0
+offset_right = 908.0
+offset_bottom = 470.0
+content = "Research (except Geology)
+Visit familly
+Medical reasons
+Education
+Politic"
+
+[node name="DialogArea" parent="GameUI" instance=ExtResource("5_myg6n")]
+
+[node name="QuestionArea" parent="GameUI" instance=ExtResource("6_toohs")]
+layout_mode = 1
+
+[node name="ZoomView" parent="GameUI" instance=ExtResource("13_spa2q")]
+visible = false
+layout_mode = 1
+
+[node name="DayAnnouncer" type="Control" parent="GameUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/DayAnnouncer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameUI/DayAnnouncer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -46.5
+offset_right = 94.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Training day
+
+12/05/2000"
+horizontal_alignment = 1
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_l6uew")
+autoplay = true
+bus = &"BGM"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ResultScreen" parent="CanvasLayer" instance=ExtResource("8_fgsii")]
+visible = false
+
+[node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("14_dx7wa")]
+visible = false
