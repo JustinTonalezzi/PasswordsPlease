@@ -1,0 +1,152 @@
+[gd_scene load_steps=22 format=3 uid="uid://d3t1coeegq2wg"]
+
+[ext_resource type="Script" path="res://scene/work_day.gd" id="1_3x04h"]
+[ext_resource type="Resource" uid="uid://cdgq8r7iklsk6" path="res://entity/character_data/day2/carol_coleman_day2.tres" id="2_gwfat"]
+[ext_resource type="Resource" uid="uid://dqh48kdtefunm" path="res://entity/character_data/day2/abishek_das_day2.tres" id="3_sbtvb"]
+[ext_resource type="Resource" uid="uid://75vynvbd7hni" path="res://entity/character_data/day2/vish_yo_day2.tres" id="4_ftybs"]
+[ext_resource type="Resource" uid="uid://b6hr5uh0nvdps" path="res://entity/character_data/day2/pratima_sanchez_day2.tres" id="5_j0a52"]
+[ext_resource type="Resource" uid="uid://domin0o44vgw0" path="res://entity/character_data/day2/tuan_ngo_day2.tres" id="6_0sogx"]
+[ext_resource type="Resource" uid="uid://bkpgk8pb8a5xg" path="res://entity/character_data/day2/yeop_haneul_day2.tres" id="7_d7dag"]
+[ext_resource type="PackedScene" uid="uid://chh2jhkuq1pai" path="res://entity/document/PostitNote.tscn" id="7_qgtkp"]
+[ext_resource type="PackedScene" uid="uid://qibwmrns1nek" path="res://ui/CameraArea.tscn" id="7_rubju"]
+[ext_resource type="PackedScene" uid="uid://r3obsn7dyt73" path="res://ui/DialogArea.tscn" id="8_o1l0y"]
+[ext_resource type="Resource" uid="uid://5v68jfpbo2gq" path="res://entity/character_data/day2/esther_raymond_day2.tres" id="8_pp0mf"]
+[ext_resource type="PackedScene" uid="uid://dgh5j07y8yrea" path="res://entity/tool/FlashlightItem.tscn" id="9_pg102"]
+[ext_resource type="PackedScene" uid="uid://cajp41ks5tyef" path="res://ui/QuestionArea.tscn" id="9_ra8jr"]
+[ext_resource type="PackedScene" uid="uid://up6eaj3xcu5g" path="res://ui/ZoomView.tscn" id="9_ukbc4"]
+[ext_resource type="PackedScene" uid="uid://cu7tx0jfe6p46" path="res://ui/WorkingArea.tscn" id="10_eatvi"]
+[ext_resource type="Texture2D" uid="uid://bk8176mgri0v5" path="res://asset/sprite/ui/square_light.png" id="10_sdkeg"]
+[ext_resource type="PackedScene" uid="uid://xb65vfev8api" path="res://entity/document/AllowedVisitNotice.tscn" id="11_e1nc0"]
+[ext_resource type="PackedScene" uid="uid://c4orpco2rb63g" path="res://ui/SettingMenu.tscn" id="11_p5ui1"]
+[ext_resource type="PackedScene" uid="uid://dewfwna8cc2s0" path="res://ui/ResultScreen.tscn" id="12_beiu4"]
+[ext_resource type="AudioStream" uid="uid://cgoe0ob7iinbo" path="res://asset/music/booth_ambient_440126__blaukreuz.ogg" id="14_0rx63"]
+[ext_resource type="PackedScene" uid="uid://b01ihqfm83sp0" path="res://scene/Day3.tscn" id="21_7tyr6"]
+
+[node name="Day2" type="Node2D"]
+script = ExtResource("1_3x04h")
+day = 2
+date_string = "14/05/2000"
+today_subjects = Array[Resource("res://entity/character_resource.gd")]([ExtResource("2_gwfat"), ExtResource("3_sbtvb"), ExtResource("4_ftybs"), ExtResource("5_j0a52"), ExtResource("6_0sogx"), ExtResource("7_d7dag"), ExtResource("8_pp0mf")])
+next_day_scene = ExtResource("21_7tyr6")
+lightout_after_n_second = 45
+
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1368.0
+offset_bottom = 768.0
+mouse_filter = 1
+
+[node name="CameraArea" parent="GameUI" instance=ExtResource("7_rubju")]
+layout_mode = 1
+
+[node name="WorkingArea" parent="GameUI" node_paths=PackedStringArray("today_extra_documents", "today_items") instance=ExtResource("10_eatvi")]
+layout_mode = 1
+offset_left = -984.0
+today_extra_documents = [NodePath("AllowedVisitNotice"), NodePath("PostitNote")]
+today_items = [NodePath("FlashlightTool")]
+
+[node name="AllowedVisitNotice" parent="GameUI/WorkingArea" instance=ExtResource("11_e1nc0")]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 160.0
+offset_right = 908.0
+offset_bottom = 470.0
+content = "Research
+Medical reasons
+Education
+Politic
+Business (Except meteorite-related objects)"
+
+[node name="PostitNote" parent="GameUI/WorkingArea" instance=ExtResource("7_qgtkp")]
+offset_left = 256.0
+offset_top = 376.0
+offset_right = 396.0
+offset_bottom = 508.0
+content = "There's some trouble with the lighting today. Use the flashlight if needed. It's in the table drawer.
+         -Mark, ur buddy"
+
+[node name="FlashlightTool" parent="GameUI/WorkingArea" instance=ExtResource("9_pg102")]
+offset_left = 88.0
+offset_top = 359.0
+offset_right = 155.0
+offset_bottom = 532.0
+
+[node name="DialogArea" parent="GameUI" instance=ExtResource("8_o1l0y")]
+
+[node name="QuestionArea" parent="GameUI" instance=ExtResource("9_ra8jr")]
+layout_mode = 1
+
+[node name="ZoomView" parent="GameUI" instance=ExtResource("9_ukbc4")]
+visible = false
+layout_mode = 1
+
+[node name="DayAnnouncer" type="Control" parent="GameUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/DayAnnouncer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameUI/DayAnnouncer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -46.5
+offset_right = 94.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Training day
+
+12/05/2000"
+horizontal_alignment = 1
+
+[node name="DarkOverlay" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[node name="ScreenLight" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(192, 192)
+scale = Vector2(4, 4)
+energy = 0.5
+texture = ExtResource("10_sdkeg")
+
+[node name="ScreenLight2" type="PointLight2D" parent="ScreenLight"]
+position = Vector2(1.75, 129.875)
+scale = Vector2(0.535156, 0.248047)
+energy = 0.5
+texture = ExtResource("10_sdkeg")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_0rx63")
+autoplay = true
+bus = &"BGM"
+
+[node name="LightoutTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("11_p5ui1")]
+visible = false
+
+[node name="ResultScreen" parent="CanvasLayer" instance=ExtResource("12_beiu4")]
+visible = false
