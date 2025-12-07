@@ -10,6 +10,8 @@ class_name CharacterResource
 @export var nationality: String
 @export var id_number: String
 @export var stand_too_close: bool
+@export var breached_manager: bool
+@export var day3yes: bool
 
 @export var has_passport: EnumAutoload.HasPassport
 @export var passport_expired: bool
