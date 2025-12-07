@@ -1,21 +1,20 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://bkv8yr1gy2fi8"]
 
-[ext_resource type="Script" path="res://entity/dialog_resource.gd" id="1_6r43t"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_6r43t"]
 [ext_resource type="Texture2D" uid="uid://cr45b2csothl3" path="res://asset/sprite/character/luther_griffin_face.png" id="2_4dclo"]
-[ext_resource type="Script" path="res://entity/character_resource.gd" id="3_o1prn"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="3_o1prn"]
 [ext_resource type="Texture2D" uid="uid://bl656hnmyayuv" path="res://asset/sprite/character/luther_griffin.png" id="4_eprpb"]
 
 [sub_resource type="Resource" id="Resource_oubtw"]
 script = ExtResource("1_6r43t")
-openings = Array[String](["Good day, inspector. Here is my passport."])
-request_document = "It's there, inspector. Please check it."
-purpose_of_visit = "I come here for medical treatment sir. Unless it required, I prefer not to talk about it."
-duration_of_stay = "I will stay here for a while, probably one months. Maybe one and a half."
-item_in_possession = "I carry a small luggage, which has some clothes, a laptop, some notebooks and a lots of medicine. *Cough*. Sorry, officer."
-previous_visit = "No, I haven't visit this town before, but I have heard about it. Something about a meteor storm happened here? Anyway, I don't care about it."
-what_your_name = "Sir, it's Luther Griffin."
-why_appearance = "What's wrong with my appearance, sir? Even though I'm sick, I think I look fine."
-request_visit_card = ""
+openings = Array[String](["Dear friend, I am a Nigerian prince who has been forced out of power and need your help to access my millions..."])
+request_document = "My most loyal royal secretary keeps it in a golden ledger. Although, he is not so loyal now as I have been betrayed..."
+purpose_of_visit = "Alas, many villains are now fighting amongst themselves after they seized my royal fortune. Friend, please allow me access into your bank account so I can virtually fight these traitors!"
+duration_of_stay = "I secure my accounts through divine protection and trusted emissaries. Yours will be protected similarly too."
+item_in_possession = "In earlier days, I used my birthright name as every password."
+previous_visit = "I have never once approached this place. Friend, I would like to extend an invitation to you to share in my wealth once we seize it together,"
+what_your_name = "It is Luther Griffin, friend. Please, help me restore my wealth."
+why_appearance = "I look like this because I have been usurped from my rightful place as heir to the throne. Together, we can restore my place and I will share with you your rightfully deserved wealth and fortune."
 
 [resource]
 script = ExtResource("3_o1prn")
@@ -26,15 +25,5 @@ gender = 1
 birthdate = "1/1/1971"
 nationality = "USA"
 id_number = "C4219992"
-stand_too_close = false
 has_passport = 1
-passport_expired = false
-bad_visit_reason = false
-has_visit_card = 0
-mismatch_visit_card_id = false
-wrong_visit_card_issued_date = false
-stay_location = ""
-stay_duration = ""
 dialog = SubResource("Resource_oubtw")
-extra_id_doc = Array[PackedScene]([])
-extra_visit_purpose_doc = Array[PackedScene]([])

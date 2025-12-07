@@ -1,40 +1,31 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://dsttd66hdkbfn"]
 
-[ext_resource type="Script" path="res://entity/dialog_resource.gd" id="1_4e3cb"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_4e3cb"]
 [ext_resource type="Texture2D" uid="uid://bnrm6l8g7ixus" path="res://asset/sprite/character/nora_galvan_face.png" id="1_q0k2q"]
-[ext_resource type="Script" path="res://entity/character_resource.gd" id="2_ioike"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="2_ioike"]
 [ext_resource type="Texture2D" uid="uid://c8cjwmcx6tava" path="res://asset/sprite/character/nora_galvan.png" id="3_x04kh"]
 
 [sub_resource type="Resource" id="Resource_836l3"]
 script = ExtResource("1_4e3cb")
-openings = Array[String]([])
-request_document = "It's there, officer."
-purpose_of_visit = "I heard the land here is strange, and I want to do some research on it. It's for my geology class."
-duration_of_stay = "I think around 4 to 5 days, officer."
-item_in_possession = "I have my bag, which has some clothes, a pair of thick gloves, my laptop, and... some chemical for analyze the dirt. They are totally safe and legal, don't worry, sir."
-previous_visit = "No sir. I haven't visited this place before"
-what_your_name = "My name? First name Nora, last name Galvan, sir."
-why_appearance = "Aren'y you supposed to compliment my look, not the other way around, officer?"
-request_visit_card = ""
+openings = Array[String](["Heyy!"])
+request_document = "It's in a folded piece of paper in my wallet."
+purpose_of_visit = "I want to show off pictures of my cat! She's soo cute."
+duration_of_stay = "A couple of times, but support told me they fixed it for me. I didn't even have to do anything!"
+item_in_possession = "I rotate between a few I like. Depends on my mood, and the moon and stuff."
+previous_visit = "No. I haven't visited this place before. Love the spooky vibe!"
+what_your_name = "My name? First name Nora, last name Galvan."
+why_appearance = "Aren't you supposed to compliment my look, not the other way around?"
 
 [resource]
 script = ExtResource("2_ioike")
 name = "Nora Galvan"
 sprite = ExtResource("3_x04kh")
 face_photo = ExtResource("1_q0k2q")
-gender = 2
+gender = 1
 birthdate = "9/4/1975"
 nationality = "USA"
 id_number = "C9052194"
-stand_too_close = false
 has_passport = 1
-passport_expired = false
+passport_expired = true
 bad_visit_reason = true
-has_visit_card = 0
-mismatch_visit_card_id = false
-wrong_visit_card_issued_date = false
-stay_location = ""
-stay_duration = ""
 dialog = SubResource("Resource_836l3")
-extra_id_doc = Array[PackedScene]([])
-extra_visit_purpose_doc = Array[PackedScene]([])
