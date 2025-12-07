@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dufe5p3532x3c"]
 
-[ext_resource type="Script" path="res://entity/document/visit_card.gd" id="1_25gg6"]
+[ext_resource type="Script" uid="uid://5deyg0wfs7kv" path="res://entity/document/visit_card.gd" id="1_25gg6"]
 [ext_resource type="Texture2D" uid="uid://3vy62bs3omo4" path="res://asset/sprite/item/visit_card.png" id="2_2g2yx"]
 [ext_resource type="FontFile" uid="uid://bp35eoaichk1k" path="res://asset/font/Ticketing.ttf" id="3_8i7qc"]
 [ext_resource type="Texture2D" uid="uid://dtb2s3m74ig8k" path="res://asset/sprite/ui/barcode.png" id="4_rfyfg"]
@@ -33,11 +33,13 @@ layout_mode = 0
 offset_right = 265.0
 offset_bottom = 117.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_itrev")
+current_tab = 0
 tabs_visible = false
 
 [node name="Background" type="TextureRect" parent="TabContainer"]
 layout_mode = 2
 texture = ExtResource("2_2g2yx")
+metadata/_tab_index = 0
 
 [node name="Title" type="Label" parent="TabContainer/Background"]
 layout_mode = 1
@@ -51,7 +53,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_8i7qc")
-text = "Visit card"
+text = "PUBLIC KEY"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -106,7 +108,7 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_8i7qc")
 theme_override_font_sizes/font_size = 8
-text = "Broome Township"
+text = "VERIFICATION"
 horizontal_alignment = 1
 
 [node name="Barcode" type="TextureRect" parent="TabContainer/Background"]

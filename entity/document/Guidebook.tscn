@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://oasns4fb3vda"]
 
-[ext_resource type="Script" path="res://entity/document/guidebook.gd" id="1_yv554"]
+[ext_resource type="Script" uid="uid://pu16exv3jk1l" path="res://entity/document/guidebook.gd" id="1_yv554"]
 [ext_resource type="Texture2D" uid="uid://j0xw2p5dmgah" path="res://asset/sprite/item/guidebook_cover.png" id="2_jdxbl"]
 [ext_resource type="Texture2D" uid="uid://bmy07teg0e25r" path="res://asset/sprite/item/guidebook_paper_full.png" id="3_ibe5a"]
 [ext_resource type="PackedScene" uid="uid://dygcqclau0cri" path="res://ui/PageFlipButton.tscn" id="3_y2e8j"]
@@ -10,9 +10,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4dvb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x83d"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmpdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x83d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rufga"]
 
@@ -41,12 +41,15 @@ light_mask = 2
 layout_mode = 0
 offset_right = 198.0
 offset_bottom = 256.0
+current_tab = 2
 tabs_visible = false
 
 [node name="Cover" type="TextureRect" parent="TabContainer"]
+visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("2_jdxbl")
+metadata/_tab_index = 0
 
 [node name="NextPageButton" parent="TabContainer/Cover" instance=ExtResource("3_y2e8j")]
 layout_mode = 0
@@ -60,9 +63,10 @@ visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("3_ibe5a")
+metadata/_tab_index = 1
 
 [node name="Label" type="Label" parent="TabContainer/TOC"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 222.0
 offset_top = 32.0
 offset_right = 376.0
@@ -77,7 +81,7 @@ text = "TABLE OF CONTENT
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="TabContainer/TOC"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 222.0
 offset_top = 104.0
 offset_right = 374.0
@@ -90,7 +94,7 @@ Terminology.......7-8
 Local map.........9-10"
 
 [node name="Label3" type="RichTextLabel" parent="TabContainer/TOC"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 22.0
 offset_top = 16.0
 offset_right = 174.0
@@ -102,14 +106,14 @@ theme_override_fonts/bold_font = ExtResource("4_hv1g7")
 theme_override_font_sizes/normal_font_size = 8
 theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
-text = "[center][b]BORDER CONTROL INSPECTOR GUIDEBOOK[/b]
+text = "[center][b]PASSWORD GUIDEBOOK[/b]
 Serial Number: 7823-ARMM-2000[/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
 
 [node name="Label4" type="RichTextLabel" parent="TabContainer/TOC"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 16.0
 offset_top = 128.0
 offset_right = 184.0
@@ -131,7 +135,7 @@ scroll_active = false
 autowrap_mode = 2
 
 [node name="PageCount" type="Label" parent="TabContainer/TOC"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 94.0
 offset_top = 240.0
 offset_right = 104.0
@@ -143,7 +147,7 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="PageCount2" type="Label" parent="TabContainer/TOC"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 286.0
 offset_top = 240.0
 offset_right = 296.0
@@ -163,8 +167,8 @@ offset_bottom = 117.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d4dvb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7x83d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmpdc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7x83d")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rufga")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1ui7l")
 flat = true
@@ -178,8 +182,8 @@ offset_bottom = 137.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d4dvb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7x83d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmpdc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7x83d")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rufga")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1ui7l")
 flat = true
@@ -193,8 +197,8 @@ offset_bottom = 156.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d4dvb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7x83d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmpdc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7x83d")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rufga")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1ui7l")
 flat = true
@@ -215,10 +219,10 @@ offset_bottom = 240.0
 flip_prev = true
 
 [node name="Rules" type="TextureRect" parent="TabContainer"]
-visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("3_ibe5a")
+metadata/_tab_index = 2
 
 [node name="Label" type="Label" parent="TabContainer/Rules"]
 layout_mode = 0
@@ -251,11 +255,12 @@ offset_bottom = 232.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_hv1g7")
 theme_override_font_sizes/font_size = 10
-text = "Rule #1: ID documents must be valid:
-	- Photo must matched.
-	- ID must not expired.
+text = "Rule #1: ID must be valid:
+	- Photo must match.
+	- PW <= 10 characters
+- Cannot use a password manager*
 
-Rule #2: Only subject with valid purpose is allowed to come in. Check today supplement materials."
+Rule #2: Users must reuse their password more than once."
 autowrap_mode = 2
 
 [node name="Rule3" type="Label" parent="TabContainer/Rules"]
@@ -267,10 +272,7 @@ offset_bottom = 112.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_hv1g7")
 theme_override_font_sizes/font_size = 10
-text = "Rule #3: Subject must carry a valid visit card.
-- Matched ID number.
-- Issued on today.
-- Has approval stamp."
+text = "*Rule #3: Any user that uses a breached password manager can now be accepted."
 autowrap_mode = 2
 
 [node name="Rule4" type="Label" parent="TabContainer/Rules"]
@@ -282,8 +284,7 @@ offset_bottom = 192.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_hv1g7")
 theme_override_font_sizes/font_size = 10
-text = "Rule #4: Duration of stay on visit card must be no more than 2 weeks.
-"
+text = "Rule #4: Users must carry a valid public key card. Public key must match pre-approved list of visitors."
 autowrap_mode = 2
 
 [node name="PageCount" type="Label" parent="TabContainer/Rules"]
@@ -313,12 +314,14 @@ text = "4
 horizontal_alignment = 1
 
 [node name="NextPageButton" parent="TabContainer/Rules" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = 384.0
 offset_top = 16.0
 offset_right = 408.0
 offset_bottom = 240.0
 
 [node name="PrevPageButton" parent="TabContainer/Rules" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 16.0
 offset_right = 16.0
@@ -330,6 +333,7 @@ visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("3_ibe5a")
+metadata/_tab_index = 3
 
 [node name="Label3" type="Label" parent="TabContainer/Rules2"]
 layout_mode = 0
@@ -390,12 +394,14 @@ text = "6
 horizontal_alignment = 1
 
 [node name="NextPageButton" parent="TabContainer/Rules2" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = 384.0
 offset_top = 16.0
 offset_right = 408.0
 offset_bottom = 240.0
 
 [node name="PrevPageButton" parent="TabContainer/Rules2" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 16.0
 offset_right = 16.0
@@ -407,6 +413,7 @@ visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("3_ibe5a")
+metadata/_tab_index = 4
 
 [node name="Label" type="Label" parent="TabContainer/Term"]
 layout_mode = 0
@@ -439,6 +446,9 @@ offset_bottom = 232.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_hv1g7")
 theme_override_font_sizes/font_size = 10
+text = "Credential stuffing: Trying long lists of stolen login details to see which ones work.
+
+Brute force attack: Trying many password guesses until one finally works."
 autowrap_mode = 2
 
 [node name="PageCount" type="Label" parent="TabContainer/Term"]
@@ -466,12 +476,14 @@ text = "8"
 horizontal_alignment = 1
 
 [node name="NextPageButton" parent="TabContainer/Term" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = 384.0
 offset_top = 16.0
 offset_right = 408.0
 offset_bottom = 240.0
 
 [node name="PrevPageButton" parent="TabContainer/Term" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 16.0
 offset_right = 16.0
@@ -483,6 +495,7 @@ visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("3_ibe5a")
+metadata/_tab_index = 5
 
 [node name="Label" type="Label" parent="TabContainer/Map"]
 layout_mode = 0
@@ -550,6 +563,7 @@ texture = ExtResource("6_2xkqx")
 expand_mode = 1
 
 [node name="PrevPageButton" parent="TabContainer/Map" instance=ExtResource("3_y2e8j")]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 16.0
 offset_right = 16.0

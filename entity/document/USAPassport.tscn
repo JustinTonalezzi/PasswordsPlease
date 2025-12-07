@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvl3ya4vpb43o"]
 
-[ext_resource type="Script" path="res://entity/document/passport.gd" id="1_eobry"]
+[ext_resource type="Script" uid="uid://cppjpof6tnkbh" path="res://entity/document/passport.gd" id="1_eobry"]
 [ext_resource type="Texture2D" uid="uid://cujia0bfupe8v" path="res://asset/sprite/item/usa_passport_cover.png" id="2_xnvlx"]
 [ext_resource type="Texture2D" uid="uid://bc5ml1ebf6g2w" path="res://asset/sprite/item/usa_passport.png" id="3_4mb6o"]
 [ext_resource type="PackedScene" uid="uid://dygcqclau0cri" path="res://ui/PageFlipButton.tscn" id="3_hgs6o"]
@@ -28,12 +28,15 @@ color = Color(0, 0, 0, 0.329412)
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 160.0
+current_tab = 1
 tabs_visible = false
 
 [node name="Cover" type="TextureRect" parent="TabContainer"]
+visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("2_xnvlx")
+metadata/_tab_index = 0
 
 [node name="NextPageButton" parent="TabContainer/Cover" instance=ExtResource("3_hgs6o")]
 layout_mode = 0
@@ -43,10 +46,10 @@ offset_right = 248.0
 offset_bottom = 168.0
 
 [node name="Page" type="TextureRect" parent="TabContainer"]
-visible = false
 light_mask = 2
 layout_mode = 2
 texture = ExtResource("3_4mb6o")
+metadata/_tab_index = 1
 
 [node name="TopSerial" type="Label" parent="TabContainer/Page"]
 layout_mode = 1
@@ -87,11 +90,12 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "[center]United States of America[/center]"
+text = "[center]User Details[/center]"
 fit_content = true
 
 [node name="Photo" type="TextureRect" parent="TabContainer/Page"]
@@ -129,9 +133,9 @@ text = "[color=blue]Name[/color]
 {name}
 [color=blue]Date of birth[/color]
 {dob}
-[color=blue]Gender[/color]
-{gender}
-[color=blue]Expired date[/color]
+[color=blue]Password storage[/color]
+{storage}
+[color=blue]Password length[/color]
 {expired_date}"
 fit_content = true
 scroll_active = false
