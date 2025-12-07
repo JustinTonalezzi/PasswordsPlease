@@ -69,15 +69,16 @@ func load_next_character():
 		result_screen.show_result()
 
 func calculate_pax_legal():
-	if current_subject.passport_expired or \
+	if current_subject.passport_expired and \
 	current_subject.bad_visit_reason or \
+	current_subject.breached_manager or \
 	current_subject.has_passport == EnumAutoload.HasPassport.DONT_HAVE or \
-	current_subject.has_visit_card == EnumAutoload.HasVisitCard.DONT_HAVE or \
-	current_subject.mismatch_visit_card_id:
-		print(current_subject.name + " is ILLEGAL")
-		return false
-	print(current_subject.name + " is LEGAL")
-	return true
+	current_subject.has_visit_card == EnumAutoload.HasVisitCard.DONT_HAVE:
+		if current_subject.mismatch_visit_card_id != true:
+			print(current_subject.name + " is ALLOWED")
+			return true
+	print(current_subject.name + " is DENIED")
+	return false
 
 func zoom_document(doc: MoveableDocument):
 	is_in_zoom_view = true
