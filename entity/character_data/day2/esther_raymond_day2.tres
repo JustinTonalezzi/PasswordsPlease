@@ -1,21 +1,20 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://5v68jfpbo2gq"]
 
-[ext_resource type="Script" path="res://entity/character_resource.gd" id="1_fn7e1"]
-[ext_resource type="Script" path="res://entity/dialog_resource.gd" id="1_gp7ib"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="1_fn7e1"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_gp7ib"]
 [ext_resource type="Texture2D" uid="uid://cl2pr3kfwe8c8" path="res://asset/sprite/character/esther_raymond_face.png" id="1_mqdbl"]
 [ext_resource type="Texture2D" uid="uid://c5y1tbptc3vcx" path="res://asset/sprite/character/esther_raymond.png" id="3_685yd"]
 
 [sub_resource type="Resource" id="Resource_ggwgv"]
 script = ExtResource("1_gp7ib")
-openings = Array[String](["Here's the passport, mister."])
-request_document = "I just gave it to you."
-purpose_of_visit = "I'm a candidate for the next Mayor in the nearby town, and I have a meeting with this town officials today."
-duration_of_stay = "I will stay here overnight."
-item_in_possession = "A change of clothes, some personal toiletries and my phone."
-previous_visit = "Obviously, I came here for meetings a few times already."
-what_your_name = "It's Esther Raymond, mister inspector."
-why_appearance = "Is this authority abusing? Because you are an border inspector so you can harass me? I'm not a mayor now but soon will be so you better be careful with your mouth."
-request_visit_card = ""
+openings = Array[String](["Hello."])
+request_document = "A password manager."
+purpose_of_visit = "I'm a candidate for the mayor in the next election, and want to get a personal yet professional website to convince the people to vote for me. "
+duration_of_stay = "I've never been hacked...that I will publicly admit."
+item_in_possession = "I change my passwords yearly, whether they need it or not."
+previous_visit = "No, but one of friends mentioned this agency and I saw it was based in this town."
+what_your_name = "It's Esther Raymond."
+why_appearance = "...What?"
 
 [resource]
 script = ExtResource("1_fn7e1")
@@ -26,15 +25,7 @@ gender = 2
 birthdate = "30/7/1973"
 nationality = "USA"
 id_number = "C4320568"
-stand_too_close = false
+breached_manager = true
 has_passport = 1
-passport_expired = false
-bad_visit_reason = false
-has_visit_card = 0
-mismatch_visit_card_id = false
-wrong_visit_card_issued_date = false
-stay_location = ""
-stay_duration = ""
+bad_visit_reason = true
 dialog = SubResource("Resource_ggwgv")
-extra_id_doc = Array[PackedScene]([])
-extra_visit_purpose_doc = Array[PackedScene]([])

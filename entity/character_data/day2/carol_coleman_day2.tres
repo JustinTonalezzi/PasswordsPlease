@@ -1,40 +1,30 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://cdgq8r7iklsk6"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://p11af5lub3yc"]
 
-[ext_resource type="Script" path="res://entity/character_resource.gd" id="1_chiyl"]
-[ext_resource type="Script" path="res://entity/dialog_resource.gd" id="1_f31tc"]
-[ext_resource type="Texture2D" uid="uid://dmyaoqg2xxdg4" path="res://asset/sprite/character/carol_coleman_face.png" id="2_sbrjl"]
-[ext_resource type="Texture2D" uid="uid://dpleoax244247" path="res://asset/sprite/character/carol_coleman.png" id="4_x110g"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_3e6vg"]
+[ext_resource type="Texture2D" uid="uid://c4hoti3hy40w0" path="res://asset/sprite/character/carol_coleman_face.png" id="2_u2mdb"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="3_ij0dc"]
+[ext_resource type="Texture2D" uid="uid://k0fi2xmqpk6c" path="res://asset/sprite/character/carol_coleman.png" id="4_26qu5"]
 
 [sub_resource type="Resource" id="Resource_k4p1l"]
-script = ExtResource("1_f31tc")
-openings = Array[String](["Hello officer, I'm back. And this time I got the valid reason for visiting."])
-request_document = "Already gave you, officer."
-purpose_of_visit = "You forgot already? It's for business, mister officer. Business. I'm gonna make tons of money by buying those meteorite fragments and re-sell them. Gotta hurry up before the government ban trading them."
-duration_of_stay = "Roughly a day, officer."
-item_in_possession = "Not much. A laptop, phone and my set of business cards."
-previous_visit = "Does it count if I only arrived at the checkpoint but unable to get in? Because that's exactly what I did yesterday."
+script = ExtResource("1_3e6vg")
+openings = Array[String](["Hey, I'm back. Can you please make me that website?"])
+request_document = "Seriously? You don't need to know that."
+purpose_of_visit = "You forgot already? I asked you to make a website making fun of my coworker as a prank, remember? "
+duration_of_stay = "Again, really weird. I've been fine lately."
+item_in_possession = "Why would you ask me that? Don't you make websites? "
+previous_visit = "Dude, I was here yetserday. Do you seriously not remember me?"
 what_your_name = "It's Carol Coleman."
-why_appearance = "Why I wear the same clothes like yesterday? Cause I own multiple sets of the same clothes to streamline my morning routine, saving time on deciding what to wear. Isn't it efficient?"
-request_visit_card = ""
+why_appearance = "If you're trying to hit on me, it's failing."
 
 [resource]
-script = ExtResource("1_chiyl")
+script = ExtResource("3_ij0dc")
 name = "Carol Coleman"
-sprite = ExtResource("4_x110g")
-face_photo = ExtResource("2_sbrjl")
+sprite = ExtResource("4_26qu5")
+face_photo = ExtResource("2_u2mdb")
 gender = 2
 birthdate = "9/2/1978"
 nationality = "USA"
 id_number = "C8520921"
-stand_too_close = false
+day3yes = true
 has_passport = 1
-passport_expired = false
-bad_visit_reason = true
-has_visit_card = 0
-mismatch_visit_card_id = false
-wrong_visit_card_issued_date = false
-stay_location = ""
-stay_duration = ""
 dialog = SubResource("Resource_k4p1l")
-extra_id_doc = Array[PackedScene]([])
-extra_visit_purpose_doc = Array[PackedScene]([])

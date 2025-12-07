@@ -1,40 +1,30 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://75vynvbd7hni"]
 
-[ext_resource type="Script" path="res://entity/dialog_resource.gd" id="1_8s3el"]
-[ext_resource type="Script" path="res://entity/character_resource.gd" id="1_tkwak"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_8s3el"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="1_tkwak"]
 [ext_resource type="Texture2D" uid="uid://73cqb3s3kel0" path="res://asset/sprite/character/vish_yo_face.png" id="2_pa205"]
 [ext_resource type="Texture2D" uid="uid://brs1ox0q3tndy" path="res://asset/sprite/character/vish_yo.png" id="4_4uxs1"]
 
 [sub_resource type="Resource" id="Resource_4wt2k"]
 script = ExtResource("1_8s3el")
-openings = Array[String](["Good day, mister officer."])
-request_document = "It's there, mister."
-purpose_of_visit = "I come here to study with my professor. He lived here and invited me to come here. I don't really want to but I guess some fieldwork experience is good for me."
-duration_of_stay = "I will be here for around 4 months."
-item_in_possession = "I have my luggage with me, which has clothes, textbooks, a laptop, my phone, some personal toiletries and some food."
-previous_visit = "I came here once with my professor before. I don't like it, to be honest. I prefer the liveliness of the city more."
-what_your_name = "It's Vishnu Yo, sir. But you can call me Vish."
-why_appearance = "Uhh... sorry, sir? Is something wrong with my appearance?"
-request_visit_card = ""
+openings = Array[String](["Good afternoon."])
+request_document = "I use a reputable password manager to store everything."
+purpose_of_visit = "I'm an international student, so I want to set up a simple homepage for my resume."
+duration_of_stay = "None that I'm aware of --  I monitor my accounts regularly."
+item_in_possession = "I use unique passwords for each account. I can't make them up on my own, so the password manager covers that for me."
+previous_visit = "I did not hear about your company prior to contacting you."
+what_your_name = "It's Vishnu Yo. But you can call me Vish."
+why_appearance = "Uhh... sorry? Is something wrong with my appearance?"
 
 [resource]
 script = ExtResource("1_tkwak")
 name = "Vishnu Yo"
 sprite = ExtResource("4_4uxs1")
 face_photo = ExtResource("2_pa205")
-gender = 1
+gender = 2
 birthdate = "4/2/1970"
 nationality = "USA"
 id_number = "C5329381"
-stand_too_close = false
+day3yes = true
 has_passport = 1
-passport_expired = false
-bad_visit_reason = false
-has_visit_card = 0
-mismatch_visit_card_id = false
-wrong_visit_card_issued_date = false
-stay_location = ""
-stay_duration = ""
 dialog = SubResource("Resource_4wt2k")
-extra_id_doc = Array[PackedScene]([])
-extra_visit_purpose_doc = Array[PackedScene]([])
