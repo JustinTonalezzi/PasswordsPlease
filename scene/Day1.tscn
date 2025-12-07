@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://rhslxr0t6o5v"]
+[gd_scene load_steps=22 format=3 uid="uid://rhslxr0t6o5v"]
 
-[ext_resource type="Script" path="res://scene/work_day.gd" id="1_y1sn6"]
+[ext_resource type="Script" uid="uid://b8hb18q7t5yqw" path="res://scene/work_day.gd" id="1_y1sn6"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="2_2o51t"]
 [ext_resource type="Resource" uid="uid://b451oxbcvbbxx" path="res://entity/character_data/day1/daniel_smith_day1.tres" id="2_ruqh5"]
 [ext_resource type="Resource" uid="uid://gq7s2rqr4hyd" path="res://entity/character_data/day1/devish_pant_day1.tres" id="3_ggspu"]
 [ext_resource type="PackedScene" uid="uid://qibwmrns1nek" path="res://ui/CameraArea.tscn" id="4_0pheg"]
-[ext_resource type="Resource" uid="uid://bptwnjn0acvhc" path="res://entity/character_data/day1/carol_coleman_day1.tres" id="4_unlga"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="5_2o51t"]
 [ext_resource type="PackedScene" uid="uid://r3obsn7dyt73" path="res://ui/DialogArea.tscn" id="5_myg6n"]
 [ext_resource type="Resource" uid="uid://bkv8yr1gy2fi8" path="res://entity/character_data/day1/luther_griffin_day1.tres" id="5_vf3dd"]
 [ext_resource type="Resource" uid="uid://dsttd66hdkbfn" path="res://entity/character_data/day1/nora_galvan_day1.tres" id="6_qp85b"]
@@ -17,11 +18,40 @@
 [ext_resource type="PackedScene" uid="uid://c4orpco2rb63g" path="res://ui/SettingMenu.tscn" id="14_dx7wa"]
 [ext_resource type="AudioStream" uid="uid://cgoe0ob7iinbo" path="res://asset/music/booth_ambient_440126__blaukreuz.ogg" id="14_l6uew"]
 
+[sub_resource type="Resource" id="Resource_t14ou"]
+script = ExtResource("5_2o51t")
+openings = Array[String](["Hey there."])
+request_document = "You don't need to know that."
+purpose_of_visit = "Can you make a website making fun of my coworker as a prank? "
+duration_of_stay = "These are some weird questions. I've been fine lately."
+item_in_possession = "Why would you ask me that? Don't you make websites? "
+previous_visit = "No, it just popped up when I was surfing on Yahoo."
+what_your_name = "It's Coleman. Carol Coleman."
+why_appearance = "Rude."
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_po3i4"]
+load_path = "res://.godot/imported/carol_coleman_face.png-ee92c8a80f515dcfd6a0ddcf96cf8a36.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73c6j"]
+load_path = "res://.godot/imported/carol_coleman.png-ce22ef6ee731920c655e7e6377b10c5c.ctex"
+
+[sub_resource type="Resource" id="Resource_52uvu"]
+script = ExtResource("2_2o51t")
+name = "Carol Coleman"
+sprite = SubResource("CompressedTexture2D_73c6j")
+face_photo = SubResource("CompressedTexture2D_po3i4")
+gender = 2
+birthdate = "9/2/1978"
+nationality = "USA"
+id_number = "C8520921"
+has_passport = 1
+dialog = SubResource("Resource_t14ou")
+
 [node name="Day1" type="Node2D"]
 script = ExtResource("1_y1sn6")
 day = 1
 date_string = "13/05/2000"
-today_subjects = Array[Resource("res://entity/character_resource.gd")]([ExtResource("2_ruqh5"), ExtResource("3_ggspu"), ExtResource("4_unlga"), ExtResource("5_vf3dd"), ExtResource("6_qp85b")])
+today_subjects = Array[ExtResource("2_2o51t")]([ExtResource("2_ruqh5"), ExtResource("3_ggspu"), SubResource("Resource_52uvu"), ExtResource("5_vf3dd"), ExtResource("6_qp85b")])
 next_day_scene = ExtResource("13_e8k2m")
 
 [node name="GameUI" type="Control" parent="."]
@@ -44,13 +74,22 @@ offset_left = 688.0
 offset_top = 160.0
 offset_right = 908.0
 offset_bottom = 470.0
-content = "Research (except Geology)
-Visit familly
-Medical reasons
-Education
-Politic"
+content = "Password length <= 10 chars.
+Common password
+Were hacked before
+Are looking for a personal website"
 
 [node name="DialogArea" parent="GameUI" instance=ExtResource("5_myg6n")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -303.0
+offset_top = -1.0
+offset_right = 209.0
+offset_bottom = 191.0
+grow_horizontal = 2
 
 [node name="QuestionArea" parent="GameUI" instance=ExtResource("6_toohs")]
 layout_mode = 1

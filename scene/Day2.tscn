@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3t1coeegq2wg"]
+[gd_scene load_steps=23 format=3 uid="uid://d3t1coeegq2wg"]
 
-[ext_resource type="Script" path="res://scene/work_day.gd" id="1_3x04h"]
-[ext_resource type="Resource" uid="uid://cdgq8r7iklsk6" path="res://entity/character_data/day2/carol_coleman_day2.tres" id="2_gwfat"]
+[ext_resource type="Script" uid="uid://b8hb18q7t5yqw" path="res://scene/work_day.gd" id="1_3x04h"]
+[ext_resource type="Resource" uid="uid://cdgq8r7iklsk6" path="res://entity/character_data/day3/carol_coleman_day3.tres" id="2_gwfat"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="2_xy7we"]
 [ext_resource type="Resource" uid="uid://dqh48kdtefunm" path="res://entity/character_data/day2/abishek_das_day2.tres" id="3_sbtvb"]
 [ext_resource type="Resource" uid="uid://75vynvbd7hni" path="res://entity/character_data/day2/vish_yo_day2.tres" id="4_ftybs"]
 [ext_resource type="Resource" uid="uid://b6hr5uh0nvdps" path="res://entity/character_data/day2/pratima_sanchez_day2.tres" id="5_j0a52"]
@@ -26,9 +27,8 @@
 script = ExtResource("1_3x04h")
 day = 2
 date_string = "14/05/2000"
-today_subjects = Array[Resource("res://entity/character_resource.gd")]([ExtResource("2_gwfat"), ExtResource("3_sbtvb"), ExtResource("4_ftybs"), ExtResource("5_j0a52"), ExtResource("6_0sogx"), ExtResource("7_d7dag"), ExtResource("8_pp0mf")])
+today_subjects = Array[ExtResource("2_xy7we")]([ExtResource("2_gwfat"), ExtResource("3_sbtvb"), ExtResource("4_ftybs"), ExtResource("5_j0a52"), ExtResource("6_0sogx"), ExtResource("7_d7dag"), ExtResource("8_pp0mf")])
 next_day_scene = ExtResource("21_7tyr6")
-lightout_after_n_second = 45
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
@@ -52,27 +52,33 @@ offset_left = 688.0
 offset_top = 160.0
 offset_right = 908.0
 offset_bottom = 470.0
-content = "Research
-Medical reasons
-Education
-Politic
-Business (Except meteorite-related objects)"
+content = "Password length <= 10 chars.
+Common password
+Were hacked before
+Are looking for a personal website"
 
 [node name="PostitNote" parent="GameUI/WorkingArea" instance=ExtResource("7_qgtkp")]
-offset_left = 256.0
-offset_top = 376.0
-offset_right = 396.0
-offset_bottom = 508.0
-content = "There's some trouble with the lighting today. Use the flashlight if needed. It's in the table drawer.
-         -Mark, ur buddy"
+layout_mode = 0
+offset_left = 486.0
+offset_top = 240.0
+offset_right = 626.0
+offset_bottom = 372.0
+content = "Heard TitanicPass, KeeMaybe, and Safe-Ish were breached last night. Should make your job easier ;)
+         -Mark"
 
 [node name="FlashlightTool" parent="GameUI/WorkingArea" instance=ExtResource("9_pg102")]
+visible = false
+layout_mode = 0
 offset_left = 88.0
 offset_top = 359.0
 offset_right = 155.0
 offset_bottom = 532.0
 
 [node name="DialogArea" parent="GameUI" instance=ExtResource("8_o1l0y")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 385.0
+offset_right = 897.0
 
 [node name="QuestionArea" parent="GameUI" instance=ExtResource("9_ra8jr")]
 layout_mode = 1

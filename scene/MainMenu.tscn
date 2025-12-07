@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dw5gex6j5klfd"]
 
 [ext_resource type="Texture2D" uid="uid://dsbtkd1owj325" path="res://asset/sprite/ui/main_menu.png" id="1_81wn2"]
-[ext_resource type="Script" path="res://scene/main_menu.gd" id="1_cgdo5"]
+[ext_resource type="Script" uid="uid://cqoupbfm3ml3w" path="res://scene/main_menu.gd" id="1_cgdo5"]
 [ext_resource type="PackedScene" uid="uid://buwmemilvox0o" path="res://scene/Day0.tscn" id="2_a1ppj"]
 [ext_resource type="AudioStream" uid="uid://cgoe0ob7iinbo" path="res://asset/music/booth_ambient_440126__blaukreuz.ogg" id="4_s74fy"]
 [ext_resource type="Texture2D" uid="uid://b4j4hk2l2coy5" path="res://asset/sprite/square.png" id="4_snhcy"]
@@ -330,7 +330,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pitsq"]
 _data = {
-"idle": SubResource("Animation_lme3w")
+&"idle": SubResource("Animation_lme3w")
 }
 
 [node name="MainMenu" type="Node2D"]
@@ -360,18 +360,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_snhcy")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="PASS" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -643.0
-offset_top = 184.0
-offset_right = 301.0
-offset_bottom = 272.0
+offset_left = -674.0
+offset_top = 212.99998
+offset_right = 413.0
+offset_bottom = 350.0
 grow_horizontal = 2
 rotation = -0.188529
-theme_override_font_sizes/font_size = 100
-text = "HUMAN, PLEASE..."
+theme_override_font_sizes/font_size = 90
+text = "PASSWORDS, PLEASE..."
 horizontal_alignment = 1
 
 [node name="CRTShader" type="ColorRect" parent="CanvasLayer"]
@@ -379,7 +379,8 @@ material = SubResource("ShaderMaterial_vncc5")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -278.0
+offset_left = 1.0
+offset_right = -277.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -403,16 +404,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "START JOB"
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "???"
-
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "???"
-
 [node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -420,23 +411,25 @@ text = "QUIT"
 
 [node name="VersionLabel" type="Label" parent="CanvasLayer"]
 self_modulate = Color(0.32549, 0.32549, 0.32549, 1)
-offset_left = 1200.0
-offset_top = 720.0
-offset_right = 1240.0
-offset_bottom = 735.0
-text = "v0.3"
+offset_left = 1112.0
+offset_top = 695.0
+offset_right = 1225.0
+offset_bottom = 726.6667
+text = "remixed from
+khoa nguyen"
 
 [node name="AuthorLabel" type="Label" parent="CanvasLayer"]
 self_modulate = Color(0.32549, 0.32549, 0.32549, 1)
 offset_left = 1112.0
-offset_top = 736.0
-offset_right = 1337.0
-offset_bottom = 751.0
-text = "a game made by Johnminer"
+offset_top = 646.0
+offset_right = 1300.0
+offset_bottom = 677.6667
+text = "a game by kapila, 
+jillian, and justin"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pitsq")
+&"": SubResource("AnimationLibrary_pitsq")
 }
 autoplay = "idle"
 
@@ -447,7 +440,5 @@ bus = &"BGM"
 
 [connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/StartButton" to="." method="button_hover_sfx"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Button2" to="." method="button_hover_sfx"]
-[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Button3" to="." method="button_hover_sfx"]
 [connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="button_hover_sfx"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

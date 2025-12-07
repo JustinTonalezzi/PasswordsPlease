@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://buwmemilvox0o"]
+[gd_scene load_steps=30 format=3 uid="uid://buwmemilvox0o"]
 
 [ext_resource type="PackedScene" uid="uid://qibwmrns1nek" path="res://ui/CameraArea.tscn" id="1_mrj0o"]
-[ext_resource type="Script" path="res://scene/work_day.gd" id="1_ol8rn"]
+[ext_resource type="Script" uid="uid://b8hb18q7t5yqw" path="res://scene/work_day.gd" id="1_ol8rn"]
 [ext_resource type="Resource" uid="uid://bvad1dg57pnki" path="res://entity/character_data/day0/mark_davidson_day0.tres" id="2_5b6jg"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="2_l0yjs"]
 [ext_resource type="PackedScene" uid="uid://r3obsn7dyt73" path="res://ui/DialogArea.tscn" id="2_qicx2"]
 [ext_resource type="Resource" uid="uid://bvja6p0i3nlnb" path="res://entity/character_data/day0/earnell_armstrong_day0.tres" id="3_rx682"]
 [ext_resource type="AudioStream" uid="uid://cj1un8frisw5u" path="res://asset/music/The_Stars_and_Stripes_Forever_1929_Sousa.ogg" id="4_gpucv"]
@@ -14,13 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://cu7tx0jfe6p46" path="res://ui/WorkingArea.tscn" id="11_k1ci3"]
 [ext_resource type="PackedScene" uid="uid://cajp41ks5tyef" path="res://ui/QuestionArea.tscn" id="11_mbsvd"]
 [ext_resource type="Texture2D" uid="uid://bw6j8x37nosyq" path="res://asset/sprite/cutscene/county_location.png" id="13_80y6a"]
-[ext_resource type="Script" path="res://ui/cutscene.gd" id="13_mt7u3"]
-[ext_resource type="Texture2D" uid="uid://cvq84vfo2co1v" path="res://asset/sprite/cutscene/meteor_rain.png" id="14_siqti"]
+[ext_resource type="Script" uid="uid://ishg02dkuq0k" path="res://ui/cutscene.gd" id="13_mt7u3"]
 [ext_resource type="Texture2D" uid="uid://bm74qc5fpavp6" path="res://asset/sprite/cutscene/broome_town.png" id="14_xqrtw"]
 [ext_resource type="Texture2D" uid="uid://b51n1ymbsgmdm" path="res://asset/sprite/cutscene/news_report.png" id="16_fnoqs"]
-[ext_resource type="Texture2D" uid="uid://deowem57svk3o" path="res://asset/sprite/cutscene/airplane.png" id="18_4cqcu"]
-[ext_resource type="Texture2D" uid="uid://cu3q1hlmc5ice" path="res://asset/sprite/cutscene/inspector.png" id="19_hugcr"]
-[ext_resource type="Texture2D" uid="uid://c7p1htmtfx12p" path="res://asset/sprite/cutscene/superior_officer.png" id="19_pt04q"]
+[ext_resource type="Texture2D" uid="uid://borhua8oke206" path="res://asset/sprite/cutscene/loan.jpg" id="16_l0yjs"]
+[ext_resource type="Texture2D" uid="uid://b3mtapn6ik4ek" path="res://asset/sprite/cutscene/paydebt.jpeg" id="17_hlt83"]
+[ext_resource type="Texture2D" uid="uid://c250tycucut7x" path="res://asset/sprite/cutscene/weak.jpeg" id="18_6quko"]
+[ext_resource type="Texture2D" uid="uid://c1qijmhnpvsxe" path="res://asset/sprite/cutscene/scam.jpg" id="18_kqd3k"]
 [ext_resource type="Texture2D" uid="uid://gcyyugg8xmpf" path="res://asset/sprite/cutscene/driving.png" id="21_18uvw"]
 [ext_resource type="Texture2D" uid="uid://ckfjivs516yth" path="res://asset/sprite/cutscene/beer_bar.png" id="22_hkbty"]
 [ext_resource type="Texture2D" uid="uid://trhhrji0ahtt" path="res://asset/sprite/cutscene/inspector_home.png" id="23_0psbb"]
@@ -46,14 +47,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kmm4g"]
 _data = {
-"fadeout": SubResource("Animation_mx57t")
+&"fadeout": SubResource("Animation_mx57t")
 }
 
 [node name="Day0" type="Node2D" node_paths=PackedStringArray("prework_cutscene", "postwork_cutscene")]
 script = ExtResource("1_ol8rn")
 date_string = "12/05/2000"
-today_subjects = Array[Resource("res://entity/character_resource.gd")]([ExtResource("2_5b6jg"), ExtResource("3_rx682")])
-shuffle_subjects_order = false
+today_subjects = Array[ExtResource("2_l0yjs")]([ExtResource("2_5b6jg"), ExtResource("3_rx682")])
 next_day_scene = ExtResource("9_flwck")
 prework_cutscene = NodePath("GameUI/PreworkCutscene")
 postwork_cutscene = NodePath("GameUI/PostworkCutscene")
@@ -72,6 +72,11 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="DialogArea" parent="GameUI" instance=ExtResource("2_qicx2")]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 6.0
+offset_right = 895.0
+offset_bottom = 198.0
 
 [node name="QuestionArea" parent="GameUI" instance=ExtResource("11_mbsvd")]
 layout_mode = 1
@@ -118,7 +123,6 @@ text = "Training day
 horizontal_alignment = 1
 
 [node name="PreworkCutscene" type="Control" parent="GameUI"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,28 +149,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_28ubb")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="TownIntro" type="ColorRect" parent="GameUI/PreworkCutscene/TabContainer"]
-visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 0
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/TownIntro"]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 128.0
-offset_right = 492.0
-offset_bottom = 449.0
+offset_left = 224.0
+offset_top = 127.0
+offset_right = 524.0
+offset_bottom = 448.0
 texture = ExtResource("13_80y6a")
 
 [node name="TextureRect2" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/TownIntro"]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 112.0
-offset_right = 1176.0
-offset_bottom = 452.0
+offset_left = 662.0
+offset_top = 114.0
+offset_right = 1170.0
+offset_bottom = 454.0
 texture = ExtResource("14_xqrtw")
 
 [node name="Label" type="Label" parent="GameUI/PreworkCutscene/TabContainer/TownIntro"]
@@ -176,10 +180,8 @@ offset_top = 512.0
 offset_right = 1192.0
 offset_bottom = 632.0
 theme_override_font_sizes/font_size = 26
-text = "Broome in Saxum County, once overlooked and forgotten, a town untouched by the rush of modern life.
-
-Life here moved at its own gentle pace, unaffected by the chaos beyond its borders."
-horizontal_alignment = 1
+text = "
+Money has been tight. You've been forced to relocate to a new, unassuming town where the rent is much cheaper. You need to find a job, and quickly."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/TownIntro"]
@@ -193,23 +195,17 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="MeteorNew" type="ColorRect" parent="GameUI/PreworkCutscene/TabContainer"]
+visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/MeteorNew"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 56.0
-offset_right = 640.0
-offset_bottom = 448.0
-texture = ExtResource("14_siqti")
+metadata/_tab_index = 1
 
 [node name="TextureRect2" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/MeteorNew"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 168.0
-offset_right = 1150.0
-offset_bottom = 384.0
+offset_left = 409.0
+offset_top = 136.0
+offset_right = 1004.9908
+offset_bottom = 473.0
 texture = ExtResource("16_fnoqs")
 
 [node name="Label" type="Label" parent="GameUI/PreworkCutscene/TabContainer/MeteorNew"]
@@ -219,10 +215,7 @@ offset_top = 512.0
 offset_right = 1216.0
 offset_bottom = 632.0
 theme_override_font_sizes/font_size = 26
-text = "Reports are coming in of a meteorite shower hitting the outskirts of Broome.
-
-Initial analysis suggests these meteorites may contain rare materials and possibly even signs of extraterrestrial life."
-horizontal_alignment = 1
+text = "That's when it hits you: you can just create your own business and use your expertise as a security specialist to funnel money out of the pockets of your customers by finding the most vulnerable ones!"
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/MeteorNew"]
@@ -239,14 +232,16 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 2
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/PeopleCome"]
 layout_mode = 0
-offset_left = 432.0
-offset_top = 56.0
-offset_right = 944.0
-offset_bottom = 448.0
-texture = ExtResource("18_4cqcu")
+offset_left = 415.0
+offset_top = 92.0
+offset_right = 957.6124
+offset_bottom = 454.0
+texture = ExtResource("16_l0yjs")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="GameUI/PreworkCutscene/TabContainer/PeopleCome"]
 layout_mode = 0
@@ -255,8 +250,7 @@ offset_top = 512.0
 offset_right = 1216.0
 offset_bottom = 632.0
 theme_override_font_sizes/font_size = 26
-text = "Broome, once quiet and unassuming, was now thrust into the spotlight, its streets teeming with eager visitors seeking to unravel its mysteries."
-horizontal_alignment = 1
+text = "You take out a loan to get this “company” set up, but unfortunately you need money to make money, and so you’re going to have to get your hands dirty while you set up the infrastructure."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/PeopleCome"]
@@ -273,14 +267,16 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 3
 
 [node name="TextureRect2" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/Officer1"]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 168.0
-offset_right = 974.0
-offset_bottom = 453.0
-texture = ExtResource("19_pt04q")
+offset_left = 367.0
+offset_top = 63.0
+offset_right = 986.0578
+offset_bottom = 476.0
+texture = ExtResource("17_hlt83")
+expand_mode = 1
 
 [node name="Label" type="RichTextLabel" parent="GameUI/PreworkCutscene/TabContainer/Officer1"]
 layout_mode = 0
@@ -290,7 +286,8 @@ offset_right = 1216.0
 offset_bottom = 632.0
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "[color=aqua]Superior Officer[/color]: \"You've been selected for a special assignment, Inspector. We need someone to oversee the influx of people into Broome and ensure order is maintained\"."
+text = "
+Once the 'business' is running smoothly, you can start to both pay off your loan as well as invest in the company's growth over time. [color=yellow]You only have three days to pay off your loan. [/color]"
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/Officer1"]
@@ -307,6 +304,7 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 4
 
 [node name="Label" type="RichTextLabel" parent="GameUI/PreworkCutscene/TabContainer/Officer2"]
 layout_mode = 0
@@ -316,7 +314,8 @@ offset_right = 1216.0
 offset_bottom = 632.0
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "[color=aqua]Superior Officer[/color]: \"With the sudden surge in interest due to the meteorite discovery, we can't afford any mishaps. Your job is to regulate access to the town and keep things under control.\"."
+text = "
+Finding people's passwords under the pretense of a job means that your users will end up (unintentionally) helping you in covering your own tracks from the authorities. A master plan, you think."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/Officer2"]
@@ -331,16 +330,17 @@ autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/Officer2"]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 168.0
-offset_right = 974.0
-offset_bottom = 453.0
-texture = ExtResource("19_pt04q")
+offset_left = 359.0
+offset_top = 65.0
+offset_right = 999.0
+offset_bottom = 492.0
+texture = ExtResource("18_kqd3k")
 
 [node name="Inspector1" type="ColorRect" parent="GameUI/PreworkCutscene/TabContainer"]
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 5
 
 [node name="Label" type="RichTextLabel" parent="GameUI/PreworkCutscene/TabContainer/Inspector1"]
 layout_mode = 0
@@ -350,7 +350,7 @@ offset_right = 1216.0
 offset_bottom = 632.0
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "[color=yellow]Inspector Officer[/color]:  \"Understood, sir. I'll do everything in my power to uphold order and security in Broome\"."
+text = "Right now, you have to pay off this loan. Having the bank on your back is going to make all of your procedures all the more difficult. For now, just look to hire people who have [color=yellow]weak passwords[/color], so you can scam them through credential stuffing or brute force attacks."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/Inspector1"]
@@ -363,18 +363,19 @@ text = "Click to continue"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/Inspector1"]
+[node name="TextureRect" type="TextureRect" parent="GameUI/PreworkCutscene/TabContainer/Inspector1"]
 layout_mode = 0
-offset_left = 376.0
-offset_top = 168.0
-offset_right = 1007.0
-offset_bottom = 448.0
-texture = ExtResource("19_hugcr")
+offset_left = 488.0
+offset_top = 136.0
+offset_right = 886.0
+offset_bottom = 440.0
+texture = ExtResource("18_6quko")
 
 [node name="Depart" type="ColorRect" parent="GameUI/PreworkCutscene/TabContainer"]
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 6
 
 [node name="Label" type="RichTextLabel" parent="GameUI/PreworkCutscene/TabContainer/Depart"]
 layout_mode = 0
@@ -384,9 +385,9 @@ offset_right = 1216.0
 offset_bottom = 672.0
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "Assigned to the task of maintaining order, the inspector sets out for Broome, prepared to face the challenges that await.
+text = "
 
-Yet, beneath the surface of everyday duties and regular tasks, a mysterious aura surrounded the job. \"It won't be just smooth sailing\", the inspector think."
+All you need to do is make it through one day at a time… You’re going to need some [color=yellow]passwords, please. [/color]"
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PreworkCutscene/TabContainer/Depart"]
@@ -419,7 +420,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/PreworkCutscene"]
 libraries = {
-"": SubResource("AnimationLibrary_kmm4g")
+&"": SubResource("AnimationLibrary_kmm4g")
 }
 autoplay = "fadeout"
 
@@ -454,13 +455,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_28ubb")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="BeerTalk" type="ColorRect" parent="GameUI/PostworkCutscene/TabContainer"]
-visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 0
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/PostworkCutscene/TabContainer/BeerTalk"]
 layout_mode = 0
@@ -477,9 +478,9 @@ offset_top = 512.0
 offset_right = 1192.0
 offset_bottom = 644.0
 theme_override_font_sizes/font_size = 26
-text = "After the training session, you and Officer Earnell go the the local bar to quench your thirst.
+text = "After the training session, you and Mark head to the local bar to quench your thirst. You thank him for your first 'customer'.
 
-Just like he said, the beers here is unlike anything else you have ever drink."
+He grins, and orders you a beer."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -494,8 +495,10 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BeerTalk2" type="ColorRect" parent="GameUI/PostworkCutscene/TabContainer"]
+visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 1
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/PostworkCutscene/TabContainer/BeerTalk2"]
 layout_mode = 0
@@ -513,9 +516,9 @@ offset_right = 1192.0
 offset_bottom = 644.0
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "[color=aqua]Officer Earnell[/color]: \"Pretty nice, isn't it? Welcome to the town, I hope we can be a good team.\"
+text = "[color=aqua]Mark[/color]: \"Hey, no problem. I owed you one, anyway. Welcome to the town, I hope I can show you around later.\"
 
-\"You should get some rest soon, the journey here must be tiring.\""
+\"You should get some rest soon, though. You have a big day ahead of yourself tomorrow. Good luck with that loan of yours.\""
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PostworkCutscene/TabContainer/BeerTalk2"]
@@ -532,6 +535,7 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 2
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/PostworkCutscene/TabContainer/GoHome"]
 layout_mode = 0
@@ -549,9 +553,9 @@ offset_right = 1192.0
 offset_bottom = 644.0
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "And thus, you went back to your new house. 
+text = "And thus, you go back to your new house. 
 
-The government-provided accomodation is suprisingly nice, though that make you skeptical about your mission, since these sort of treatments usually come with strings attached."
+Your accommodation is pretty nice, all things considered, but you can't stop thinking about the high stakes ahead of you."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="GameUI/PostworkCutscene/TabContainer/GoHome"]
@@ -568,6 +572,7 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_tab_index = 3
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/PostworkCutscene/TabContainer/GoHome2"]
 layout_mode = 0
@@ -587,7 +592,7 @@ theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
 text = "But the day is long, and you are tired...
 
-\"Let's worry about that later. Not much I can do now anyway.\", you thought.
+\"Let's worry about that later. Not much I can do now anyway...\", you think to yourself.
 
 ...and you fall asleep."
 autowrap_mode = 2
@@ -614,7 +619,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/PostworkCutscene"]
 libraries = {
-"": SubResource("AnimationLibrary_kmm4g")
+&"": SubResource("AnimationLibrary_kmm4g")
 }
 autoplay = "fadeout"
 

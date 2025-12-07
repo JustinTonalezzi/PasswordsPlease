@@ -4,9 +4,8 @@ class_name WorkDay
 @export var day: int
 @export var date_string: String
 @export var today_subjects: Array[CharacterResource]
-@export var shuffle_subjects_order = true
+@export var shuffle_subjects_order = false
 @export var next_day_scene: PackedScene
-
 @export var prework_cutscene: Cutscene
 @export var postwork_cutscene: Cutscene
 
