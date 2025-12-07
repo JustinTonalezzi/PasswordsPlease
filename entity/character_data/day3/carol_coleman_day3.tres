@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://cdgq8r7iklsk6"]
+
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_wwa6q"]
+[ext_resource type="Texture2D" uid="uid://c4hoti3hy40w0" path="res://asset/sprite/character/carol_coleman_face.png" id="2_tl875"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="3_2wext"]
+[ext_resource type="Texture2D" uid="uid://k0fi2xmqpk6c" path="res://asset/sprite/character/carol_coleman.png" id="4_irljp"]
+
+[sub_resource type="Resource" id="Resource_k4p1l"]
+script = ExtResource("1_wwa6q")
+openings = Array[String](["Hey, I'm back. Can you please make me that website?"])
+request_document = "Seriously? You don't need to know that."
+purpose_of_visit = "You forgot already? I asked you to make a website making fun of my coworker as a prank, remember? "
+duration_of_stay = "Again, really weird. I've been fine lately."
+item_in_possession = "Why would you ask me that? Don't you make websites? "
+previous_visit = "Dude, I was here yetserday. Do you seriously not remember me?"
+what_your_name = "It's Carol Coleman."
+why_appearance = "If you're trying to hit on me, it's failing."
+request_visit_card = "What? I don't have that. You've already seen me, just make my website!"
+
+[resource]
+script = ExtResource("3_2wext")
+name = "Carol Coleman"
+sprite = ExtResource("4_irljp")
+face_photo = ExtResource("2_tl875")
+gender = 2
+birthdate = "9/2/1978"
+nationality = "USA"
+id_number = "C8520921"
+day3yes = true
+has_passport = 1
+has_visit_card = 4
+dialog = SubResource("Resource_k4p1l")

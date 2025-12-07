@@ -1,21 +1,20 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://bnrsmyvjk7gls"]
 
-[ext_resource type="Script" path="res://entity/dialog_resource.gd" id="1_k1g2b"]
+[ext_resource type="Script" uid="uid://dqi67md833vjg" path="res://entity/dialog_resource.gd" id="1_k1g2b"]
 [ext_resource type="Texture2D" uid="uid://dms73fh1fgfek" path="res://asset/sprite/character/shirley_cook_face.png" id="2_v3dk2"]
-[ext_resource type="Script" path="res://entity/character_resource.gd" id="3_vemjx"]
+[ext_resource type="Script" uid="uid://dknj0ybtw48l2" path="res://entity/character_resource.gd" id="3_vemjx"]
 [ext_resource type="Texture2D" uid="uid://dspffkvrjpkfv" path="res://asset/sprite/character/shirley_cook.png" id="4_2kakn"]
 
 [sub_resource type="Resource" id="Resource_pcenm"]
 script = ExtResource("1_k1g2b")
-openings = Array[String](["Hello mister inspector."])
-request_document = "I already gave both of them to you, sir."
-purpose_of_visit = "I came to work as the new piano tutor for a wealthy family in town."
-duration_of_stay = "I will live in this town for 3 months, as per my contract. I also will stay at their place during the job, too! Saved some rent money hehe!"
-item_in_possession = "I brought my clothes, my personal toilettries, laptop, phone, piano textbooks, some office supplies, and a kalimba."
-previous_visit = "No, first time here. I heard there's a meteor shower here recently too? How lucky! I have never seen one before."
+openings = Array[String](["Hello hello!"])
+request_document = "I moved to a password manager only after losing all of my passwords."
+purpose_of_visit = "I'd like to open a little flower shop , and need a website to sell flowers from my garden."
+duration_of_stay = "My password manager warned me about weak passwords but I figured it's strong enough already."
+item_in_possession = "I ignore alerts because they pop up too often."
+previous_visit = "I was browsing around some companies and yours caught my eye."
 what_your_name = "You can call me Shirley Cook."
-why_appearance = "Oh, what's wrong with my appearance? Is there some wanted criminal look like me? I mean, I'm not the most unique looking person, but still..."
-request_visit_card = ""
+why_appearance = "I mean, I'm not the most *unique* looking person, but still..."
 
 [resource]
 script = ExtResource("3_vemjx")
@@ -26,15 +25,10 @@ gender = 2
 birthdate = "6/12/1969"
 nationality = "USA"
 id_number = "C0530291"
-stand_too_close = false
+breached_manager = true
 has_passport = 1
-passport_expired = false
-bad_visit_reason = false
+bad_visit_reason = true
 has_visit_card = 1
-mismatch_visit_card_id = true
-wrong_visit_card_issued_date = false
 stay_location = "4 Autumn Lane"
 stay_duration = "3 months"
 dialog = SubResource("Resource_pcenm")
-extra_id_doc = Array[PackedScene]([])
-extra_visit_purpose_doc = Array[PackedScene]([])
