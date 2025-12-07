@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cajp41ks5tyef"]
 
 [ext_resource type="Texture2D" uid="uid://co1sjt6h2h1as" path="res://asset/sprite/ui/question_area.png" id="1_8txi1"]
-[ext_resource type="Script" path="res://ui/question_area.gd" id="1_ct41n"]
+[ext_resource type="Script" uid="uid://ca1qrg8saiegp" path="res://ui/question_area.gd" id="1_ct41n"]
 [ext_resource type="FontFile" uid="uid://b2q8817lu0td7" path="res://asset/font/RobotoMono-VariableFont_wght.ttf" id="3_og5ud"]
 [ext_resource type="Texture2D" uid="uid://duf3sth0tr448" path="res://asset/sprite/circle.png" id="4_j8660"]
 
@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycp8s"]
 _data = {
-"flash_highlight": SubResource("Animation_g7qpr")
+&"flash_highlight": SubResource("Animation_g7qpr")
 }
 
 [node name="QuestionArea" type="Control"]
@@ -60,9 +60,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_og5ud")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_snson")
+current_tab = 0
 
 [node name="Standard" type="ScrollContainer" parent="TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Standard"]
 layout_mode = 2
@@ -71,7 +73,7 @@ size_flags_horizontal = 3
 [node name="Standard1" type="Button" parent="TabContainer/Standard/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_og5ud")
-text = "Request document"
+text = "Password storage"
 text_overrun_behavior = 3
 
 [node name="Standard2" type="Button" parent="TabContainer/Standard/VBoxContainer"]
@@ -83,13 +85,13 @@ text_overrun_behavior = 3
 [node name="Standard3" type="Button" parent="TabContainer/Standard/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_og5ud")
-text = "Duration of stay"
+text = "# of breaches"
 text_overrun_behavior = 3
 
 [node name="Standard4" type="Button" parent="TabContainer/Standard/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_og5ud")
-text = "Item in possession"
+text = "Security habits"
 text_overrun_behavior = 3
 
 [node name="Standard5" type="Button" parent="TabContainer/Standard/VBoxContainer"]
@@ -101,6 +103,7 @@ text_overrun_behavior = 3
 [node name="Interrogate" type="ScrollContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Interrogate"]
 layout_mode = 2
@@ -121,6 +124,7 @@ text_overrun_behavior = 3
 [node name="Special" type="ScrollContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Special"]
 layout_mode = 2
@@ -134,10 +138,9 @@ text = "Request subject stand further"
 text_overrun_behavior = 3
 
 [node name="Special2" type="Button" parent="TabContainer/Special/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_og5ud")
-text = "Request visit card"
+text = "Request public key"
 text_overrun_behavior = 3
 
 [node name="Highlight" type="TextureRect" parent="."]
@@ -157,7 +160,7 @@ expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ycp8s")
+&"": SubResource("AnimationLibrary_ycp8s")
 }
 autoplay = "flash_highlight"
 

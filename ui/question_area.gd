@@ -12,32 +12,36 @@ var quick_footstep_sfx = preload ("res://asset/sfx/quick_footstep_412785__myrara
 
 var standard_questions = [
 	[
-		"Please present your identification papers.",
-		"Papers, please.",
-		"I need to verify your identification documents.",
-		"Where are your documents?"
+		# Request Document
+		"Where do you keep your passwords?",
+		"How do you store your passwords?",
+		"Where are your passwords usually saved?",
+		"What method do you use to store your passwords?"
 	],
 	[
-		"What is your purpose of visit?",
-		"Can you tell me why you visit this town?",
-		"Please state your purpose of visit.",
-		"Purpose of visit, please."
+		# Purpose of Visit
+		"What is the reason for your visit to this site?",
+		"Why are you trying to access this website?",
+		"What purpose brings you to this page?",
+		"What are you here to do on this site?"
 	],
 	[
-		"How long you planned to stay here?",
-		"How long will be this visit?",
-		"Please state your duration of stay.",
+		# Duration of Stay
+		"How many times has your account been breached?",
+		"How often have you been hacked in the past?",
+		"How many security breaches have you experienced?",
+		"How many times has someone broken into your accounts?"
 	],
 	[
-		"What is your current inventory?",
-		"What did you bring with you?",
-		"Please list all of your item in possession.",
+		# Item in Possession
+		"How often do you change your passwords?",
+		"How frequently do you reset your login details?",
+		"When do you usually update your passwords?",
+		"How regularly do you refresh your passwords?"
 	],
 	[
-		"Have you visited this town before?",
-		"Have you ever been here before?",
-		"Is this your first time here?",
-		"Please state your previous visits to this town.",
+		# Previous Visit
+		"Have you been to this website before?"
 	]
 ]
 

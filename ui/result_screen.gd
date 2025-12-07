@@ -84,7 +84,7 @@ func move_to_next_day():
 		get_tree().change_scene_to_packed(GameManager.work_day.next_day_scene)
 	else:
 		visible = true
-		next_day_button.text = "NEXT DAY STILL WIP.\nTHANKS FOR PLAYING"
+		next_day_button.text = "THANKS FOR PLAYING!"
 		next_day_button.disabled = true
 
 func play_beep_sfx():
